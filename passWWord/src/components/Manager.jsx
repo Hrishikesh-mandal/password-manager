@@ -43,7 +43,7 @@ const Manager = () => {
         <div className="absolute top-0 z-[-2] h-screen w-screen rotate-180 transform bg-white bg-[radial-gradient(60%_120%_at_50%_50%,hsla(0,0%,100%,0)_0,rgba(252,205,238,.5)_100%)]"></div>
 
 
-        <div className="container bg-green-50 mx-auto max-w-5xl p-4 shadow-lg">
+        <div className="container bg-green-50 shadow-lg mx-auto max-w-5xl p-4 ">
             <h1 className="text text-4xl text-center font-bold">
                 <span className='text-green-700'>&lt;</span>
                 <span>pass</span>
@@ -75,6 +75,34 @@ const Manager = () => {
                     Add Password</button>
                            
             </div>
+
+            <div className="passwords">
+                <h2 className="text-2xl font-bold py-4">Your Password</h2>
+                { passwordArray.length === 0 && <div>No password to show</div>}
+                {passwordArray.length > 0 && 
+                <table className="table-auto w-full rounded-md overflow-hidden">
+                    <thead className="bg-green-500">
+                        <tr>
+                        <th className="py-2">Site</th>
+                        <th className="py-2">Username</th>
+                        <th className="py-2">Password</th>
+                        </tr>
+                    </thead>
+                    <tbody className="bg-green-100">
+                        {passwordArray.map((item, index) => {
+                            return (
+                                <tr key={index}>
+                                    <td className="text-center w-0 py-2 border-y-2 border-y-grey"><a href={item.site} target="_blank">{item.site}</a></td>
+                                    <td className="text-center w-0 py-2 border-y-2 border-y-grey">{item.username}</td>
+                                    <td className="text-center w-0 py-2 border-y-2 border-y-grey">{item.password}</td>
+                                </tr>
+                            )
+                        })}
+                        
+                    </tbody>
+                    </table>}
+            </div>
+
 
         </div>          
 
